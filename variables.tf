@@ -1,7 +1,24 @@
 variable "region" {
-  default     = "us-east-2"
+  default     = "us-west-2"
   type        = string
   description = "AWS region"
+}
+
+variable "key_pair" {
+  type        = string
+  description = "key pair for worker nodes"
+}
+
+variable "cluster_log_retention" {
+  type        = number
+  description = "log retention period in days"
+  default     = 90
+}
+
+variable "woker_volume_size" {
+  type        = number
+  description = "worker node volume size in Gi"
+  default     = 20
 }
 
 variable "cluster_name" {

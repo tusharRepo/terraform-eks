@@ -1,5 +1,5 @@
 resource "aws_security_group" "eks_worker_sg" {
-  name_prefix = "${var.cluster_name}-worker-sg"
+  name_prefix = "${var.cluster_name}-worker-additional-sg"
   vpc_id      = module.vpc.vpc_id
 
   ingress {
@@ -8,7 +8,7 @@ resource "aws_security_group" "eks_worker_sg" {
     protocol  = "tcp"
 
     cidr_blocks = [
-      "10.0.0.0/8",
+      var.vpc_cidr
     ]
   }
 }
