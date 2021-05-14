@@ -57,3 +57,14 @@ output "vpc_id" {
     description = "vpc id"
     value       = module.vpc.vpc_id
 }
+
+output "bastion_host_instance" {
+    description = "bastion host"
+    value       = aws_instance.bastion.public_ip
+}
+
+output "bastion_host_sg" {
+    description = "bastio host security group"
+    value       = aws_security_group.eks_bastion_sg.id
+}
+
